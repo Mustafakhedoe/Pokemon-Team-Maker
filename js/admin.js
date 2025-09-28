@@ -182,7 +182,7 @@ async function showMembers(teamId) {
         <div class="text-center id-badge pt-2">#${pad3(m.pokemon_id)} — slot ${m.slot}</div>
         <div class="d-grid gap-2 mt-2">
           <button class="btn btn-sm btn-outline-secondary">Vervang</button>
-          <button class="btn btn-sm btn-outline-danger">Kick</button>
+          <button class="btn btn-sm btn-outline-danger">Verwijderen</button>
         </div>
       </div>
     `;

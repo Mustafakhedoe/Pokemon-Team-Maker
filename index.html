@@ -26,15 +26,42 @@
         <div class="collapse navbar-collapse" id="navContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item me-2">
-              <button class="btn btn-outline-secondary" id="backToStartBtn" type="button">← Start</button>
+              <button class="btn btn-outline-secondary" id="backToStartBtn" type="button">Back to home</button>
             </li>
             <li class="nav-item dropdown me-2">
               <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="genDropdown">Gen 1 (Kanto)</button>
               <ul class="dropdown-menu" id="genMenu"></ul>
             </li>
+
+            <!-- VERVANGEN: zoeken op type i.p.v. nummer -->
             <li class="nav-item me-2">
-              <input class="form-control" id="searchInput" placeholder="Zoek op nummer (bv. 25)" inputmode="numeric" pattern="[0-9]*" />
+              <input class="form-control" id="searchInput"
+                     placeholder="Zoek op type (bv. fire, water, grass)"
+                     list="typeList" />
             </li>
+            <!-- Optionele autocompletion voor types (styling blijft intact) -->
+            <datalist id="typeList">
+              <option value="normal"></option>
+              <option value="fire"></option>
+              <option value="water"></option>
+              <option value="grass"></option>
+              <option value="electric"></option>
+              <option value="ice"></option>
+              <option value="fighting"></option>
+              <option value="poison"></option>
+              <option value="ground"></option>
+              <option value="flying"></option>
+              <option value="psychic"></option>
+              <option value="bug"></option>
+              <option value="rock"></option>
+              <option value="ghost"></option>
+              <option value="dragon"></option>
+              <option value="dark"></option>
+              <option value="steel"></option>
+              <option value="fairy"></option>
+            </datalist>
+            <!-- EINDE wijziging -->
+
           </ul>
           <div class="d-flex align-items-center gap-2">
             <span class="badge text-bg-primary" id="selectedCount">0 selected</span>
@@ -57,16 +84,16 @@
           <div class="card shadow-sm">
             <div class="card-body p-4 p-md-5">
               <h1 class="h3 mb-3">Pokémon Team Builder</h1>
-              <p class="text-secondary mb-4">Feed you <strong>Team Name</strong> and choose the maximum team size. Then you go to the Pokémon page</p>
+              <p class="text-secondary mb-4">Type your <strong>Name</strong> and choose the maximum team size.</p>
 
               <form id="startForm" class="needs-validation" novalidate>
                 <div class="mb-3">
-                  <label for="teamName" class="form-label">TeamName</label>
-                  <input type="text" class="form-control" id="teamName" placeholder="Bijv. Kanto Kings" required>
+                  <label for="teamName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="teamName" placeholder="e.g. Luffy56" required>
                   <div class="invalid-feedback">Vul een teamnaam in.</div>
                 </div>
                 <div class="mb-4">
-                  <label for="teamMax" class="form-label">Max Pokémon in team</label>
+                  <label for="teamMax" class="form-label">Max. Pokémon in your team</label>
                   <select id="teamMax" class="form-select">
                     <option value="6" selected>6</option>
                     <option value="7">7</option>
@@ -76,7 +103,7 @@
                   </select>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
-                  <button type="submit" class="btn btn-primary">Start making</button>
+                  <button type="submit" class="btn btn-primary">Start</button>
                   <a class="btn btn-outline-secondary" href="admin.html">Admin</a>
                 </div>
               </form>
@@ -84,52 +111,61 @@
           </div>
         </div>
       </div>
+<!-- Admin-service kaart -->
+<div class="card shadow-sm mt-4 mx-auto" style="max-width: 900px;">
+  <div class="card-body text-center">
+    <div class="display-6 mb-2" aria-hidden="true">🛠️</div>
+    <h5 class="card-title mb-3">Would you like to have something adjusted for your team?</h5>
+    <p class="mb-2">
+      After you created your team, you can <strong>not</strong> adjust it yourself.<br>
+      Send me an email with your <strong>name</strong> and what you want to adjust.<br>
+      I'll arrange it for you and let you know as soon as it's ready!
+    </p>
 
-      <!-- Admin-service kaart -->
-<div class="card shadow-sm mt-4">
-  <div class="card-body d-flex gap-3 align-items-start">
-    <div class="display-6" aria-hidden="true">🛠️</div>
-    <div class="flex-grow-1">
-      <h5 class="card-title mb-2">Would you like to have something adjusted for your team?</h5>
-      <p class="mb-3">
-        After you create your team, you can <strong>not yourself</strong> change.
-        Send me an email with you <strong>team name</strong> and what you want to adjust. 
-        I'll arrange it for you and let you know as soon as it's ready.
-      </p>
-
-      <div class="row g-3">
-        <div class="col-12 col-md-7">
-          <div class="border rounded p-3 h-100">
-            <div class="small text-muted mb-2">Examples (I can do this for you):</div>
-            <ul class="mb-0">
-              <li><strong>Replace Pokémon</strong> (e.g. #006 → #009)</li>
-              <li><strong>Releasing Pokémon</strong> (Repair – Make ID available again)</li>
-              <li><strong>Change team name</strong></li>
-              <li><strong>Max. adjust team size</strong> (6–10)</li>
-              <li><strong>Pokémon “kick”</strong>(remove one member)</li>
-              <li><strong>Delete entire team</strong></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-5">
-          <div class="border rounded p-3 h-100 d-flex flex-column">
-            <div class="small text-muted">
-              email manually to<br>
-              <a href="mailto:mustafa.khedoe7@outlook.com">mustafa.khedoe7@outlook.com</a>
-            </div>
-          </div>
+    <div class="row g-3 justify-content-center mt-3">
+      <!-- Linker box -->
+      <div class="col-12 col-md-6">
+        <div class="border rounded p-3 h-100 text-start">
+          <div class="small text-muted mb-2">What we can do for you:</div>
+          <ul class="mb-0">
+            <li><strong>Replace Pokémon</strong> (e.g. #006 → #009)</li>
+            <li><strong>Releasing Pokémon</strong> (Repair – Make ID available again)</li>
+            <li><strong>Change name</strong></li>
+            <li><strong>Adjust your team size</strong> (6–10)</li>
+            <li><strong>Delete Pokémon</strong> (remove one member)</li>
+            <li><strong>Delete your team</strong></li>
+          </ul>
         </div>
       </div>
 
-      <p class="mt-3 mb-0 small text-muted">
-        Tip: always mention your <strong>team name</strong> and the desired change (e.g. 
-        “replace #008 with #006”, “increase max to 7” or “remove team”).
-      </p>
+      <!-- Rechter box -->
+      <div class="col-12 col-md-6">
+        <div class="border rounded p-3 h-100 text-start">
+          <div class="small text-muted mb-2">email manually to</div>
+          <a href="mailto:mustafa.khedoe7@outlook.com" class="d-block mb-3">mustafa.khedoe7@outlook.com</a>
+
+          <div class="mb-3">
+            <div class="small text-muted">Instagram of Mustafa</div>
+            <a href="https://www.instagram.com/mustafakhedoee?igsh=c2EwcDZkZWZ6Mmh3" 
+               target="_blank" class="btn btn-dark w-100">
+              <i class="bi bi-instagram"></i> View Instagram
+            </a>
+          </div>
+
+          <div class="mb-3">
+            <div class="small text-muted">GitHub of Mustafa</div>
+            <a href="https://github.com/Mustafakhedoe" 
+               target="_blank" class="btn btn-dark w-100">
+              <i class="bi bi-github"></i> View GitHub
+            </a>
+          </div>
+
+          <div class="small text-muted">Created by Mustafa & Shahien</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
     </main>
     <!-- BUILDER VIEW -->
     <section id="builderView" class="container py-4 d-none" aria-live="polite">
@@ -164,7 +200,7 @@
     <!-- App logic -->
     <script src="js/pokemon.js"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
+    <script src="js/supabase.js"></script>
 
   </body>
 </html>
