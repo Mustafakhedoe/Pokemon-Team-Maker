@@ -1,0 +1,66 @@
+/* Grid cards */
+.poke-card { cursor: pointer; user-select: none; transition: transform .08s ease-in-out; }
+.poke-card:hover { transform: translateY(-2px); }
+.poke-img { width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #f8f9fa; border-radius: .75rem; }
+.poke-id { font-variant-numeric: tabular-nums; }
+
+/* Selected state */
+.selected .poke-img { outline: 4px solid #0d6efd; outline-offset: 0; background: #eef4ff; }
+.selected .checkmark { display: inline-flex !important; }
+.checkmark { display: none; width: 1.75rem; height: 1.75rem; align-items: center; justify-content: center; border-radius: 50%; background: #0d6efd; color: #fff; font-size: .9rem; position: absolute; top: .5rem; right: .5rem; }
+
+/* Busy (voor later – server claims) */
+.busy .poke-img { filter: grayscale(1); opacity: .6; }
+.busy::after { content: "Bezet"; position: absolute; inset: auto .5rem .5rem auto; background: #dc3545; color: #fff; padding: .15rem .4rem; border-radius: .5rem; font-size: .75rem; }
+
+/* Selected list chips */
+.chip { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .5rem; border-radius: 999px; background: #f8f9fa; border: 1px solid #dee2e6; }
+.chip img { width: 1.5rem; height: 1.5rem; object-fit: contain; }
+.chip .remove { cursor: pointer; }
+
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+
+/* Type-regel onder elk kaartje */
+.type-line {
+    margin-top: .1rem;
+    font-size: .9rem;
+    font-weight: 600;
+    font-family: "Century Gothic", Century, "Century Schoolbook", Arial, sans-serif;
+    text-transform: capitalize;
+    letter-spacing: .2px;
+  }
+  
+  /* Kleuren per type (Gen 9-stijl) */
+  .type--bug      { color: #92BC2C; }
+  .type--dark     { color: #595761; }
+  .type--dragon   { color: #0C69C8; }
+  .type--electric { color: #F2D94E; }
+  .type--fairy    { color: #EE90E6; }
+  .type--fighting { color: #D3425F; }
+  .type--fire     { color: #FBA54C; }
+  .type--flying   { color: #A1BBEC; }
+  .type--ghost    { color: #5F6DBC; }
+  .type--grass    { color: #5FBD58; }
+  .type--ground   { color: #DA7C4D; }
+  .type--ice      { color: #75D0C1; }
+  .type--normal   { color: #A0A29F; }
+  .type--poison   { color: #B763CF; }
+  .type--psychic  { color: #FA8581; }
+  .type--rock     { color: #C9BB8A; }
+  .type--steel    { color: #5695A3; }
+  .type--water    { color: #539DDF; }
+
+  
+
+  .poke-card.busy {
+    filter: grayscale(1);
+    opacity: .55;
+    position: relative;
+  }
+  .poke-card.busy::after{
+    content: "Bezet";
+    position:absolute; top:.5rem; right:.5rem;
+    background:#dc3545; color:#fff; font-size:.75rem; padding:.15rem .35rem; border-radius:.35rem;
+  }
+  
